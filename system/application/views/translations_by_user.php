@@ -14,7 +14,7 @@
                     <tr valign="top">
 
                     <td><?php echo $original_row->testcard_nr;?></td>
-                    <td><?php echo $original_row->text;?></td>
+                    <td><?php echo preg_replace("/\{(.+?)\}/", '<strong>$1</strong>', $original_row->text ); ?></td>
 
 
                     <?php
