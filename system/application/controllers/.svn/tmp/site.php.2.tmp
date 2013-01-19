@@ -1,0 +1,119 @@
+<?php 
+    
+Class Site extends MY_Controller 
+{
+
+
+	function index() 
+	{
+		// Here we can add additional controls for users that are guests/usual users
+		//TODO:Add additional controls
+	
+		$data['admin'] = $this->user_is_admin();
+	    $data['query'] = $this->test->get_all('order');
+	    $data['main_content'] = 'site_main';
+	    $this->load->view('includes/template', $data);
+	}
+
+	function signup() 
+	{
+	    $data['main_content'] = 'signup_form';
+	    $this->load->view('includes/template', $data);
+	}
+	
+	
+	function decide_card_action($action)
+    {   
+
+        $user_has_translation = $this->find_user_translation();
+		
+   
+        if( $user_has_translation && $action == 'test')
+            redirect ('site/open'. $this->get_test_and_card_uri() );
+
+        
+        if(!$user_has_translation && $action == 'open')
+            redirect ('site/test'. $this->get_test_and_card_uri() );
+            
+        if(!$this->user_is_admin() && $action == 'edit')
+            redirect('site/test' . $this->get_test_and_card_uri());
+  
+    }
+
+
+   
+
+    
+      function test()
+    {
+
+                $this->check_testcard_before('test');
+                $data = $this->get_testcard_data('test');
+                $data['query']            = $this->testcard->get_task($this->get_testcard_id());
+
+                if ($this->user_is_guest())
+                {
+                        $data['number_testcards'] = 4;
+                        $data['main_content'] = "test_guest";
+
+                        if($this->get_card_nr() > 4)
+                                redirect('/');
+                }
+
+                $this->load->view('includes/template', $data);
+
+    }
+
+
+    
+    
+    function open()
+    {   
+        $this->check_testcard_before('open');
+        
+        $this->load->model('translation_model', 'translation', TRUE);
+        $this->load->model('Comment_model', 'comment', TRUE);
+
+
+        
+
+        $data = $this->get_testcard_data('open');
+		if($this->user_is_guest())
+			$data['number_testcards'] = 4;
+
+
+        $data['demo_translation'] = $this->session->userdata($this->get_testcard_id());
+        $data['query']            = $this->testcard->get_answer($this->get_testcard_id(), $this->get_user_id());
+
+        $comment_language = $this->get_comment_language();
+
+        $data['comments']          = $this->comment->get($data['query'], $comment_language);
+        $data['comment_languages'] = $this->comment->get_languages($comment_language);
+        $data['comment_language']  = $comment_language;
+        $data['comment_model']     =& $this->translation;
+
+        
+        $this->load->view('includes/template', $data);
+    }
+
+
+
+
+    function edit()
+    {
+        // Check if the the user is allowed to use this page
+       $this->check_testcard_before('edit');
+       
+       
+       $this->load->model('translation_model', 'translation', TRUE);
+       
+       $data                    = $this->get_testcard_data('edit'); 
+       $data['query']           = $this->testcard->get_answer($this->get_testcard_id(), $this->get_user_id());
+       $data['comment_model']   = & $this->translation;
+       $data['testcard_id']     = $this->get_testcard_id();
+       $data['edit_error_id']      = $this->input->post('error_id');   
+       $this->load->view('includes/template', $data);
+    }
+
+
+}

@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/vladdorokh_run_translation/!svn/ver/177/www/system/application/controllers
+END
+group.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/vladdorokh_run_translation/!svn/ver/166/www/system/application/controllers/group.php
+END
+util.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/vladdorokh_run_translation/!svn/ver/74/www/system/application/controllers/util.php
+END
+crud.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/vladdorokh_run_translation/!svn/ver/185/www/system/application/controllers/crud.php
+END
+user.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/vladdorokh_run_translation/!svn/ver/174/www/system/application/controllers/user.php
+END
+test.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/vladdorokh_run_translation/!svn/ver/166/www/system/application/controllers/test.php
+END
+unittest.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/vladdorokh_run_translation/!svn/ver/83/www/system/application/controllers/unittest.php
+END
+type.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/vladdorokh_run_translation/!svn/ver/70/www/system/application/controllers/type.php
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/vladdorokh_run_translation/!svn/ver/2/www/system/application/controllers/index.html
+END
+site.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/vladdorokh_run_translation/!svn/ver/157/www/system/application/controllers/site.php
+END
+side.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/vladdorokh_run_translation/!svn/ver/187/www/system/application/controllers/side.php
+END
+testlevel.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/vladdorokh_run_translation/!svn/ver/130/www/system/application/controllers/testlevel.php
+END
+admin.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/vladdorokh_run_translation/!svn/ver/152/www/system/application/controllers/admin.php
+END
+login.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/vladdorokh_run_translation/!svn/ver/120/www/system/application/controllers/login.php
+END
+permission.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/vladdorokh_run_translation/!svn/ver/132/www/system/application/controllers/permission.php
+END

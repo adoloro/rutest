@@ -1,0 +1,216 @@
+/* Edited with EditCSS */
+/**** LINK-tag style sheet rutest.css ****/
+
+body {
+     background-color: #fff;
+     margin: 40px;
+     font-family: Lucida Grande, Verdana, Sans-serif;
+     font-size: 14px;
+     color: #4F5155;
+}
+
+a {
+     color: #003399;
+     background-color: transparent;
+     font-weight: normal;
+}
+
+h1 {
+     color: #444;
+     background-color: transparent;
+     font-size: 25px;
+     font-weight: bold;
+     margin: 24px 0 2px 0;
+     padding: 5px 0 6px 0;
+}
+
+h3 {
+    font-size: 15px;
+    text-align:center;
+    margin: 5px 2px;
+
+}
+
+#navigation {
+   	clear: both;  
+}
+
+#navigation span {
+    width:300px;
+    text-align: center;
+    margin: 0px 0;
+}
+
+
+#content { 
+     margin: 50px 0 auto; 
+     width: 400px;
+     padding: 10px;
+     margin-left:auto;
+     margin-right:auto;
+}
+
+
+#testcard {
+    margin: auto;
+    width: 635px;
+}
+
+.translation {
+    background-color: #FFDEAD; //* #efe9df;  */
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    display:block;
+    min-height: 90px;
+    width:300px;
+    margin: 4px;
+    padding: 4px;
+}
+
+.errors {
+    float: left;
+    clear: left;
+}
+
+
+.comment {
+    background-color: #FFFF80;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    display:none;
+    float: left;
+    width: 300px;
+    margin: 4px;
+    padding: 4px;
+    clear: left;
+}
+
+.comment_edit {
+	background-color: #FFFF80;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    float: left;
+    width: 300px;
+    margin: 4px;
+    padding: 4px;
+ /*   clear: both; */
+}
+
+
+
+.error {
+    background-color: #FF9191;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    display:none;
+    float: left;
+    width:300px;
+    margin: 4px;
+    padding: 4px;
+    clear: left;
+
+}
+
+
+
+
+.login {
+    text-align:center;
+    padding: 10px;
+    background-color:#f0f0f0;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+
+input[type=text], input[type=password] {
+    display:block;
+    margin: 5px;
+    width: 315px;
+    padding: 2px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+textarea {
+    padding:5px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+
+
+input[type=submit]#login {
+    border:1;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 3px 44px;
+}
+
+
+.comment_link {
+    
+    color: green;
+    font-weight:bold;
+    cursor: pointer;
+}
+
+.error_link {
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #FF9191;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    display:block;
+    text-shadow: #999 2px 2px 2px;
+    float: left;
+    width:300px;
+    margin: 4px;
+    padding: 4px;
+    
+}
+
+.active {
+    background-color: #FFFF80;
+}
+
+div#menubar {
+	position:absolute;
+	right: 1px;
+	top:0;
+}
+
+div#admin {
+    background-color: silver;
+    padding: 3px ;
+    margin-left: 20px;
+	display:block;
+   float: right;
+}
+
+
+div#lang_selector{
+	float: left;
+	padding: 3px;
+	display: block;
+}
+
+
+
+.input {
+    padding: 0 5px;
+    float:right;
+}
+
+
+/*Message box*/
+div.clean-gray-message-box{
+	border:solid 1px #DEDEDE; 
+	background:#EFEFEF;
+	color:#222222;
+	padding:4px;
+	text-align:center;
+}

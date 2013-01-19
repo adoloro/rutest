@@ -1,0 +1,1 @@
+<?php echo ($row->id == 1 || $row->id == 4) ? "style=\"float:left; clear:left;\"" : "style=\"float:right; clear:right;\""; ?>
