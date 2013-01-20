@@ -31,7 +31,26 @@ class Translation_model extends MY_Model
 
     }
 
+    function get_native_translators_in_testcard($testcard_id)
+    {
+        $user_translation_id = 4;
+        $original_translation_type = 1;
+        $this->db->from('translation');
+        $this->db->select('type_id');
+        $this->db->where('testcard_id', $testcard_id);
+        $this->db->where('type_id  !=', $user_translation_id);
+        $this->db->where('type_id  !=', $original_translation_type);
 
+        $this->db->distinct();
+
+        $native_translators = $this->assoc_array_to_array( $this->db->get()->result_array(), 'type_id');
+
+        $this->db->from('type');
+        $this->db->select('id, type, real_name');
+        $this->db->where_in('id', $native_translators);
+
+        return $this->db->get()->result();
+    }
 
 
     function get_translations($test_id, $permission_id_type, $id)

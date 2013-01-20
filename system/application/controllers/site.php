@@ -185,6 +185,7 @@ Class Site extends MY_Controller
             $data['test_and_card_uri'] = $this->get_test_and_card_uri();
             $data['query'] = $this->translation->get_user_translations ($test_id, $user_id);
             $data['original'] = $this->translation->get_original($test_id);
+            
             $data['user']  = $this->user->get_by_id($user_id);
             $test = $this->test->get_for_admin_where('test.id', $test_id);
             $data['test_name'] = $test[0]->title;
@@ -196,6 +197,36 @@ Class Site extends MY_Controller
             redirect('site/users_that_took_test' . $this->get_test_and_card_uri());
 
     }
+
+    function view_all_translations_by_type()
+        {
+            if(!$this->user_is_admin())
+                redirect('/');
+
+            $type_id = $this->uri->segment(5);
+            $test_id = $this->uri->segment(3);
+
+            if($type_id != '' && $test_id != '')
+            {
+                $this->load->model('type_model', 'type');
+                $data['test_and_card_uri'] = $this->get_test_and_card_uri();
+                $data['query'] = $this->translation->get_translations($test_id, "type_id", $type_id);
+                $data['original'] = $this->translation->get_original($test_id);
+
+                $data['user']  = $this->type->get_by_id($type_id);
+                $test = $this->test->get_for_admin_where('test.id', $test_id);
+                $data['test_name'] = $test[0]->title;
+                $data['main_content'] = 'translations_by_type';
+                $this->load->view('includes/template', $data);
+
+            }
+            else
+                redirect('site/users_that_took_test' . $this->get_test_and_card_uri());
+
+    }
+
+
+
 
     function users_that_took_test()
     {
@@ -212,6 +243,9 @@ Class Site extends MY_Controller
         // from the model, probably filtered, information from the post data or URI
                 
         $data['query'] = $this->translation->get_users($this->get_testcard_id());
+
+        // Get native translators in this test
+        $data['native_translators'] = $this->translation->get_native_translators_in_testcard($this->get_testcard_id());
 
         // Display the data, load new view
 
