@@ -22,8 +22,8 @@ class Comment_model extends Model
 		else
 			return array('norwegian', 'russian');
 
-
     }
+
 
 	function get_comment_language()
     {
@@ -86,8 +86,7 @@ class Comment_model extends Model
         $comment = preg_replace ("/\s+/", ' ', $comment);
         $comment = $comment . " --language--"; // Add --delimiter-- as an end tag 
         
-        //echo $comment . '<br />'; 
-           
+
         $lang_start_pattern = '--' . $language . '--';
         
         //echo "Look for: " . $lang_start_pattern ."\n<br>";
@@ -102,9 +101,9 @@ class Comment_model extends Model
                 return $this->strip_lang_tags($comment);                                         // return the comment
             else
             {    
-                preg_match('/' . $lang_comment_select . '/i', $comment, $matches); // otherwise take only the comment in a certain language and return it.
-                
-              
+                // otherwise take only the comment in a certain language and return it.
+                preg_match('/' . $lang_comment_select . '/i', $comment, $matches);
+
                 
                 if(isset($matches[1]))
                     return trim($matches[1]);
