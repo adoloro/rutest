@@ -1,5 +1,5 @@
 <?php
-
+/*
 Class MY_Controller extends Controller
 {
 
@@ -466,4 +466,4 @@ Class MY_Controller extends Controller
 
 
 }
-
+*/
