@@ -9,26 +9,26 @@ class LanguageExtractor
         $this->comment = $comment;
         $this->replace_newlines();
         $this->remove_excessive_spaces();
-        $this->add_a_delimiter();
+        $this->add_a_delimiter_as_end_tag();
 
     }
 
     public function extract_comment_in($language)
     {
         $lang_start_pattern = '--' . $language . '--';
-        $lang_comment_select_pattern = $lang_start_pattern . '(.+?)\s*--';
 
-        if ($language != '' && $this->is_language_not_fount_in_comment($lang_start_pattern))
+        if ($language != '' && $this->is_language_found_in_comment($lang_start_pattern))
         {
+            $lang_comment_select_pattern = $lang_start_pattern . '(.+?)\s*--';
             $this->cut_language_from_comment($lang_comment_select_pattern);
         }
+        $this->strip_lang_tags();
 
-        $this->strip_lang_tags(); // return the comment
         return $this->comment;
     }
 
 
-    private function is_language_not_fount_in_comment($lang_start_pattern)
+    private function is_language_found_in_comment($lang_start_pattern)
     {
         return preg_match('/' . $lang_start_pattern . '/i', $this->comment);
     }
@@ -47,9 +47,8 @@ class LanguageExtractor
     }
 
 
-    private function add_a_delimiter()
+    private function add_a_delimiter_as_end_tag()
     {
-        // Add --delimiter-- as an end tag
         $this->comment = $this->comment . " --language--";
     }
 
