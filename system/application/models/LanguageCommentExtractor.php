@@ -10,7 +10,6 @@ class LanguageExtractor
         $this->replace_newlines();
         $this->remove_excessive_spaces();
         $this->add_a_delimiter_as_end_tag();
-
     }
 
     public function extract_comment_in($language)
@@ -40,12 +39,10 @@ class LanguageExtractor
             $this->comment = trim($matches[1]);
     }
 
-    function strip_lang_tags()
+    private function strip_lang_tags()
     {
         $this->comment = trim(preg_replace("/\s*--.+?--\s*/", '', &$this->comment));
-
     }
-
 
     private function add_a_delimiter_as_end_tag()
     {
@@ -55,14 +52,12 @@ class LanguageExtractor
     private function remove_excessive_spaces()
     {
         $this->comment = preg_replace("/\s+/", ' ', &$this->comment);
-
     }
 
     private function replace_newlines()
     {
         $this->comment = preg_replace("/\n+/", ' ', &$this->comment);
     }
-
 
 }
 
